@@ -57,53 +57,14 @@
 <!-- App Icon -->
 <!-- Title and Slogan -->
 <div class="text-center relative">
-<h1 class="brand-title text-slate-800 tracking-tight flex items-center justify-center text-3xl md:text-4xl font-bold">Welcome to Your&nbsp <span class="block md:inline ml-1">personalized <span class="bg-gradient-to-r from-brand-purple to-brand-pink bg-clip-text text-transparent font-extrabold">Expense Tracker</span></span></h1>
-<p class="text-slate-500 mt-2 text-lg">Track every expense, master your money.</p>
+<h1 class="brand-title text-slate-800 tracking-tight flex items-center justify-center text-3xl md:text-4xl font-bold">Welcome to Your <span class="block md:inline ml-1">personalized <span class="bg-gradient-to-r from-brand-purple to-brand-pink bg-clip-text text-transparent font-extrabold">Expense Tracker</span></span></h1>
+<p class="text-slate-500 mt-2 text-lg">Track every expense, master your money</p>
 </div>
 </header>
 <!-- END: MainHeader -->
 <!-- BEGIN: AuthContainer -->
 <main class="w-full max-w-md" data-purpose="auth-form-container">
 <div class="bg-white rounded-[2rem] shadow-xl shadow-indigo-100/50 p-8 md:p-10 border border-white">
-
-<%
-String verification = (String) session.getAttribute("verification");
-
-
-if ("false".equals(verification)) {
-%>
-
-      <b style="color: red;">Invalid Credentials...!!</b>
-        <br>
-        <b style="color: red;">Login again or SignUp first..</b>
-        <br><br>
-
-
-
-<%
-session.removeAttribute("verification");
-}
-%>
-
-<%
-String signup_status = request.getParameter("signup_status");
-
-
-if ("login/signup_unsuccessfull".equals(signup_status)) {
-%>
-
-      <b style="color: red;">Login or SignUp unsuccessful...!!</b>
-        <br>
-        <b style="color: red;">Please try again..</b>
-        <br><br>
-
-<%
-
-}
-%>
-
-
-
 <!-- Welcome Text -->
 <!-- Toggle Tabs -->
 <p class="text-center text-xs font-medium text-slate-400 mb-3 uppercase tracking-wider">Choose one option</p><div class="flex p-1 bg-slate-100 rounded-xl mb-8" data-purpose="form-toggle">
@@ -115,10 +76,8 @@ if ("login/signup_unsuccessfull".equals(signup_status)) {
         </button>
 </div>
 <!-- Login Form -->
-
-<form action='login_verification' class="space-y-6" id="auth-form" method="POST">
-
-<input type="hidden" name="action_value" id="form-action" value="login">
+<form action="/login" class="space-y-6" id="auth-form" method="POST">
+<input type ='hidden' name ='action' value = 'login'>
 
 <!-- Email Field -->
 <div data-purpose="form-group" id="username-group">
@@ -128,14 +87,7 @@ if ("login/signup_unsuccessfull".equals(signup_status)) {
 </svg>
             Username
           </label>
-
-
-
-
 <input class="w-full px-4 py-3 bg-slate-50 border-none rounded-xl text-slate-800 placeholder:text-slate-400 focus:ring-2 focus:ring-indigo-500 focus:bg-white transition-all" id="username" name="username" placeholder="Enter username." required="" type="text"/>
-
-
-
 </div><div class="hidden" data-purpose="form-group" id="email-group">
 <label class="flex items-center text-sm font-medium text-slate-700 mb-2" for="email">
 <svg class="h-4 w-4 mr-2 text-indigo-500" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -153,18 +105,11 @@ if ("login/signup_unsuccessfull".equals(signup_status)) {
 </svg>
             Password
           </label>
-
-
 <input class="w-full px-4 py-3 bg-slate-50 border-none rounded-xl text-slate-800 placeholder:text-slate-400 focus:ring-2 focus:ring-indigo-500 focus:bg-white transition-all" id="password" name="password" placeholder="Enter password." required="" type="password"/>
-
-
 </div>
 <!-- Submit Button -->
 <!-- The formaction below is dynamically updated by the script at the bottom of the page based on the toggle selection --><button class="btn-gradient w-full py-4 rounded-xl text-white font-bold flex items-center justify-center gap-2 shadow-lg shadow-indigo-200 mt-4 group" type="submit">
 <span id="submit-text">Log In</span>
-
-
-
 <svg class="h-5 w-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 <path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
 </svg>
@@ -183,14 +128,13 @@ if ("login/signup_unsuccessfull".equals(signup_status)) {
     const authForm = document.getElementById('auth-form');
     const emailGroup = document.getElementById('email-group');
     const emailInput = document.getElementById('email');
-    const hiddenAction = document.getElementById('form-action');
 
     /**
      * Configuration: Change these URLs to point to your backend endpoints.
      */
     const ACTION_URLS = {
       LOGIN: 'login_verification',
-      SIGNUP: 'login_verification'
+      SIGNUP: 'Bootstrap_dashboard.jsp'
     };
 
     function switchToLogin() {
@@ -207,8 +151,6 @@ if ("login/signup_unsuccessfull".equals(signup_status)) {
       // 3. Update Submit Button & Form Action
       submitText.textContent = 'Log In';
       authForm.action = ACTION_URLS.LOGIN;
-
-      hiddenAction.value = "login";
     }
 
     function switchToSignup() {
@@ -225,8 +167,6 @@ if ("login/signup_unsuccessfull".equals(signup_status)) {
       // 3. Update Submit Button & Form Action
       submitText.textContent = 'Sign Up';
       authForm.action = ACTION_URLS.SIGNUP;
-
-      hiddenAction.value = "signup";
     }
 
     loginBtn.addEventListener('click', switchToLogin);
@@ -236,8 +176,4 @@ if ("login/signup_unsuccessfull".equals(signup_status)) {
     switchToLogin();
   </script>
 <!-- END: ClientScripts -->
-
-
-
-
 </body></html>

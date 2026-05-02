@@ -24,7 +24,7 @@ public class DBConnection {
         }
 
         System.out.println("Connection established...");
-        System.out.println(con);
+
         return con;
 
     }

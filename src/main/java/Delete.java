@@ -20,7 +20,7 @@ public class Delete extends HttpServlet {
         resp.setContentType("text/html");
         PrintWriter out = resp.getWriter();
 
-        out.print("<h3>Expense deleted successsfully...!</h3>");
+       resp.sendRedirect("bootstrap_view_expenses");
 
     }
 }
