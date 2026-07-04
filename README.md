@@ -5,7 +5,11 @@ A full-stack web application to help users record, manage, and analyze their dai
 
 ## 🎥 Demo Video
 
-https://github.com/user-attachments/assets/4823f72f-ef38-4ca9-8b62-fdcfda44f73d
+
+https://github.com/user-attachments/assets/c0fe0bf1-1eb1-4d90-878d-7c61c7b83043
+
+
+
 
 ## 📸 Screenshots
 
